@@ -5,26 +5,25 @@ Created on Wed Nov 22 21:20:04 2017
 @author: bbaruque
 """
 
-from deap import tools
+from deap import base, tools
 import CicloEvolutivo
 import matplotlib.pyplot as plt
 
-def visualizaEstadisticasEvolucion():
+def configuraEstadisticasEvolucion():
 
     import numpy as np 
     
-    # Se configura que estadísticas se quieren analizar 
+    # Se configura que estadísticas se quieren analizar sobre la evolucion
     stats = tools.Statistics(lambda ind: ind.fitness.values) 
     stats.register("avg", np.mean) 
     stats.register("std", np.std) 
     stats.register("min", np.min) 
     stats.register("max", np.max) 
     
-    # Se ejecuta la evolución y se recupera el log de datos de lo que ha sucedido en la evolucion
-    log = CicloEvolutivo.realizaEvolucion(stats)
+    return stats
     
     #%% Visualizamos una estadística para comprobar como fue la evolucion
-    
+def visualizaGrafica(log):
     # Se recuperan los datos desde el log
     gen = log.select("gen")
     avgs = log.select("avg")
@@ -44,4 +43,10 @@ def visualizaEstadisticasEvolucion():
     plt.plot()
 
 if __name__ == "__main__":
-    visualizaEstadisticasEvolucion()
+    # Herramienta para guardar la configuracion de la ejecucion
+    toolbox = base.Toolbox()
+    # Se configura que estadísticas se quieren analizar sobre la evolucion
+    stats = configuraEstadisticasEvolucion()
+    # Se ejecuta la evolución y se recupera el log de datos de lo que ha sucedido en la evolucion
+    log = CicloEvolutivo.realizaEvolucion(toolbox, stats)
+    visualizaGrafica(log)

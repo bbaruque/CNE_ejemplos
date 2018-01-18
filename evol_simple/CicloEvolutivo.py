@@ -22,10 +22,7 @@ def configuracionAlgoritmo(toolbox):
 	toolbox.register("evaluate", Evaluacion.evalKnapsack)
 
 #%% Se define como se realiza la Evolución de la busqueda de la solución
-def realizaEvolucion(stats):
-
-    # Herramienta para guardar la configuracion de la ejecucion
-    toolbox = base.Toolbox()
+def realizaEvolucion(toolbox, stats):
 
     # Se configura cómo se define cada individuo. Ver fichero correspondiente
     ConfiguracionProblema.configuraPoblacion(toolbox)
@@ -49,4 +46,6 @@ def realizaEvolucion(stats):
     return logbook
 
 if __name__ == "__main__":
-    realizaEvolucion([])
+    # Herramienta para guardar la configuracion de la ejecucion
+    toolbox = base.Toolbox()
+    realizaEvolucion(toolbox,[])
