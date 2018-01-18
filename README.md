@@ -1,4 +1,4 @@
-# Computación Neuronal y Evolutiva.
+# Computación Neuronal y Evolutiva
 
 ## [Grado en Ingeniería Informática](http://www.ubu.es/grado-en-ingenieria-informatica "Grado en Ingeniería Informática")
 ## Universidad de Burgos
