@@ -1,9 +1,18 @@
+"""
+Este modulo contiene los metodos necesarios para la evaluación de la adaptación de cada individuo
+o solución posible a nuestro problema, indicando cómo de óptima se puede considerar la
+respuesta. Esto permite comparar entre posibles soluciones para encontrar cuál será la
+más adecuada al problema.
+
+@author: bbaruque
+"""
+
 import numpy as np
 
 from deap import base
 
 import DatosMochila as dm
-import ConfiguracionProblema
+import ConfiguracionSolucion
 
 #%% Funcion de evaluacion
 # A partir de un individuo pasado como parametro, permite calcular la adaptacion de dicho individuo

@@ -1,6 +1,11 @@
 # -*- coding: utf-8 -*-
 """
-Created on Tue Nov 21 17:56:47 2017
+Fichero que incluye un ejemplo de las operaciones neesarias para configurar 
+la codificación de las posibles soluciones con las que trabajará el algoritmo evolutivo
+para resolver el problema.
+
+Se necesita indicar cómo se definen los individuos, el fitness y la población de soluciones
+y registrar todas estas opciones en las estructuras que proporciona la librería DEAP
 
 @author: bbaruque
 """
@@ -15,7 +20,7 @@ def configuraPoblacion(toolbox):
 	''' Se configura el fitness que se va a emplear en los individuos
 	 En este caso se configura para:
 	 1.buscar un único objetivo: es una tupla de solo un numero
-	 2.maximizar ese objetivo (se multiplica por un positivo)'''
+	 2.maximizar ese objetivo (se multiplica por un num. positivo)'''
 	creator.create("FitnessMax", base.Fitness, weights=(1.0,))
 
 	''' Se configura el individuo para que utilice la descripción anterior
@@ -25,7 +30,7 @@ def configuraPoblacion(toolbox):
 	''' Ejemplo de genotipo cuyos genes son de tipo float '''
 	#toolbox.register("attribute", random.random)
 	''' Ejemplo de Genotipo cuyos genes son de tipo booleano '''
-	toolbox.register("attribute", random.randint, 0, 1)
+	toolbox.register("attribute", random.randint, 0, 1) #En realidad, se indica que serán entereos entre 0 y 1
 	''' El individuo se crea como una lista (o repeticion) de "attribute", definido justo antes
 	Tendrá una longitud de 5 atributos '''
 	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attribute, n=5)
@@ -53,7 +58,7 @@ def prueba():
     ''' Se imprime la población: 10 individuos de 5 genes cada uno'''
     print(pop)
     
-    ''' En este ejemplo, todavía no se incluye la adaptación de cada individuo'''
+    ''' En este ejemplo, todavía no se calcula la adaptación de cada individuo'''
 
 if __name__ == "__main__":
     prueba()

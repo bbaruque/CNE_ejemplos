@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Nov 22 21:20:04 2017
+Este módulo permite incorporar medidas estadísticas al proceso evolutivo, que luego se pueden recuperar.
+Esto permite estimar si la evolución progresa de forma correcta o no.
 
 @author: bbaruque
 """

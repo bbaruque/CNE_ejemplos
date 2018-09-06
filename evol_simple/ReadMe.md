@@ -1,10 +1,11 @@
 El siguiente repositorio contiene el código pyhton necesario para ejecutar un algoritmo genético básico que resuelve el clasico [problema de la mochila](https://es.wikipedia.org/wiki/Problema_de_la_mochila "Wikipedia"), empleando la librería [DEAP](https://github.com/DEAP/deap "DEAP GitHub").
 
-Se han separado los ficheros fuente por funcionalidad, para simplificar las explicaciones en cada uno. Para una mejor comprensión de la solución del problema, se sugiere el siguiente orden de lectura:
+Se han separado los ficheros fuente por funcionalidad, para simplificar las explicaciones en cada uno. No es obligatorio seguir exáctamente la misma distribución de funcionalidad.
+Para una mejor comprensión de la solución del problema, se sugiere el siguiente orden de lectura:
 
 1. DescripcionProblema.md
 2. DatosMochila.py
-4. ConfiguracionProblema.py
+4. ConfiguracionSolucion.py
 5. Evaluacion.py
 6. CicloEvolutivo.py
 7. EstadisticasEvolucion.py

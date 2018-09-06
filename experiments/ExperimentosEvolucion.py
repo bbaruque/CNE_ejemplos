@@ -10,7 +10,7 @@ import sys
 sys.path.append('..')
 sys.path.append('../evol_simple')
 
-import evol_simple.ConfiguracionProblema as cp
+import evol_simple.ConfiguracionSolucion as cp
 import evol_simple.CicloEvolutivo as ce
 import evol_simple.EstadisticasEvolucion as ee
 

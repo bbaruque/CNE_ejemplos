@@ -1,6 +1,8 @@
 # -*- coding: utf-8 -*-
 """
-Created on Wed Nov 22 21:20:04 2017
+Este modulo contiene las funciones necesarias para llamar a las funciones de los modulos anteriores
+y configurar y lanzar una ejecución de un algoritmo evolutivo que permita alcanzar la
+solución óptima al problema de la mochila.
 
 @author: bbaruque
 """
@@ -8,7 +10,7 @@ Created on Wed Nov 22 21:20:04 2017
 from deap import base, tools
 from deap import algorithms
 
-import ConfiguracionProblema
+import ConfiguracionSolucion
 import Evaluacion
 
 #%% Se Define la configuracion del algoritmo genetico
@@ -25,7 +27,7 @@ def configuracionAlgoritmo(toolbox):
 def realizaEvolucion(toolbox, stats):
 
     # Se configura cómo se define cada individuo. Ver fichero correspondiente
-    ConfiguracionProblema.configuraPoblacion(toolbox)
+    ConfiguracionSolucion.configuraPoblacion(toolbox)
 
     configuracionAlgoritmo(toolbox)
 
