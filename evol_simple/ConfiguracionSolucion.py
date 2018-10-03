@@ -49,14 +49,14 @@ def prueba():
     
     ''' Se genera un único individuo '''
     ind = toolbox.individual()
-    print(ind)
+    print("Individuo: ",ind)
     
     ''' Se inicializa la poblacion. Tendrá un total de 10 individuos. 
         Se genera como una lista de individuos '''
     pop = toolbox.population(n=10)
     
     ''' Se imprime la población: 10 individuos de 5 genes cada uno'''
-    print(pop)
+    print("Poblacion: ",pop)
     
     ''' En este ejemplo, todavía no se calcula la adaptación de cada individuo'''
 

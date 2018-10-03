@@ -46,7 +46,7 @@ def prueba():
     #Herramienta para guardar la configuracion de la poblacion
     toolbox = base.Toolbox()
 
-    ConfiguracionProblema.configuraPoblacion(toolbox)
+    ConfiguracionSolucion.configuraPoblacion(toolbox)
 
     # Se instancia un individuo (aleatorio)
     ind = toolbox.individual()
@@ -58,12 +58,15 @@ def prueba():
     '''
 
     # Se imprime el individuo ANTES de evaluar
+    print ("\nIndividuo ANTES de evaluar")
     print (ind)
     print (ind.fitness.valid) # False
 
     ind.fitness.values = evalKnapsack(ind)
 
     # Se imprime el individuo DESPUES de evaluar
+    print (ind)
+    print ("\nIndividuo TRAS evaluar")
     print (ind.fitness.valid) # True
     print (ind.fitness)
 
