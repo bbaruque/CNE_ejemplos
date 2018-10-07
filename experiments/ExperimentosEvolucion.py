@@ -18,17 +18,6 @@ import LecturaDatos as ld
 
 def configura_experimentos():
 
-    # Herramienta para guardar la configuracion de la ejecucion
-    toolbox = base.Toolbox()
-
-    # Se configura cómo se define cada individuo. Ver fichero correspondiente
-    cp.configuraPoblacion(toolbox)
-
-    # Se configura los diferentes esquemas del ciclo evolutivo (tipo de selección, cruce,...)
-    # Por simplificar se emplea la configuración de otros ejemplos, pero se 
-    # puede variar a la hora de configurar los experimentos (y comparar 2 tipos de cruce, p.ej.)
-    ce.configuracionAlgoritmo(toolbox)
-
     experimentos = []
 
     # Se va a comprobar el efecto de aumentar el nº de generaciones del algoritmo
@@ -44,9 +33,7 @@ def configura_experimentos():
             exp = {}
     
             exp['data_input'] = di
-            
-            exp['toolbox'] = toolbox
-    
+
             alg_param = {}
             alg_param['cxpb'] = 0.75
             alg_param['mutpb'] = 0.2
@@ -54,6 +41,7 @@ def configura_experimentos():
             alg_param['ngen'] = n
     
             exp['alg_param'] = alg_param
+
     
             experimentos.append(exp)
 
@@ -72,11 +60,26 @@ def ejecuta_experimentos(experimentos, stats):
     for exp in experimentos:
 
         ld.carga_datos(exp['data_input'])
-        toolbox = exp['toolbox']
+        
+        # Herramienta para guardar la configuracion de la ejecucion
+        toolbox = base.Toolbox()
+
+        # Se configura cómo se define cada individuo. Ver fichero correspondiente
+        cp.configuraPoblacion(toolbox)
+
+        # Se configura los diferentes esquemas del ciclo evolutivo (tipo de selección, cruce,...)
+        # CUIDADO: Hay que tener en cuenta que la configuración que se crea en esta llamada, se sobreescribe
+        # al utilizar la configuración guardada en alg_param y utilizar sus parámetros en eaSimple
+        ce.configuracionAlgoritmo(toolbox)
+        # Por simplificar se emplea la configuración de otros ejemplos, pero se 
+        # puede variar a la hora de configurar los experimentos (y comparar 2 tipos de cruce, p.ej.)
+
         alg_param = exp['alg_param']
 
+        # Inicialización de la población
         init_pop = toolbox.population(n=alg_param['pop_size'])
 
+        # Ejecución de la evolucion
         population, logbook = algorithms.eaSimple(
             init_pop, toolbox, 
             cxpb=alg_param['cxpb'], 
