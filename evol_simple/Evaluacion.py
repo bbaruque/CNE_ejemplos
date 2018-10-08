@@ -11,7 +11,7 @@ import numpy as np
 
 from deap import base
 
-import DatosMochila as dm
+import evol_simple.DatosMochila as dm
 import ConfiguracionSolucion
 
 #%% Funcion de evaluacion
@@ -24,14 +24,14 @@ def evalKnapsack(individual):
     # Producto vectorial de un individuo (boolean) por los datos (float)
     # Multiplica cada bit del individuo por el valor correspondiente en el vector de datos
     # y finalmente hace la suma de todos
-    value = np.dot(individual,dm.values)
-    weight = np.dot(individual,dm.weights) # Mismo cáculo para el vector de pesos
+    value = np.dot(individual,dm.__values__)
+    weight = np.dot(individual,dm.__weights__) # Mismo cáculo para el vector de pesos
 
 #    print("value: ", value)
 #    print("weight: ", weight)
 
     # Se penaliza en caso de que el peso de la mochila exceda el maximo
-    diff = dm.knapsackMax - weight
+    diff = dm.__knapsackMax__ - weight
     if(diff < 0):
     	value = value + (diff * 10) # OJO: tened en cuenta que diff es negativo, por lo que en realidad está RESTANDO
 
@@ -46,7 +46,7 @@ def prueba():
     #Herramienta para guardar la configuracion de la poblacion
     toolbox = base.Toolbox()
 
-    ConfiguracionProblema.configuraPoblacion(toolbox)
+    ConfiguracionSolucion.configuraPoblacion(toolbox)
 
     # Se instancia un individuo (aleatorio)
     ind = toolbox.individual()
@@ -58,12 +58,15 @@ def prueba():
     '''
 
     # Se imprime el individuo ANTES de evaluar
+    print ("\nIndividuo ANTES de evaluar")
     print (ind)
     print (ind.fitness.valid) # False
 
     ind.fitness.values = evalKnapsack(ind)
 
     # Se imprime el individuo DESPUES de evaluar
+    print (ind)
+    print ("\nIndividuo TRAS evaluar")
     print (ind.fitness.valid) # True
     print (ind.fitness)
 

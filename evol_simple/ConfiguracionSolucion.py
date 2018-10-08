@@ -15,6 +15,8 @@ import random
 from deap import base, creator
 from deap import tools
 
+import evol_simple.DatosMochila as dm
+
 def configuraPoblacion(toolbox):
 
 	''' Se configura el fitness que se va a emplear en los individuos
@@ -33,7 +35,7 @@ def configuraPoblacion(toolbox):
 	toolbox.register("attribute", random.randint, 0, 1) #En realidad, se indica que serán entereos entre 0 y 1
 	''' El individuo se crea como una lista (o repeticion) de "attribute", definido justo antes
 	Tendrá una longitud de 5 atributos '''
-	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attribute, n=5)
+	toolbox.register("individual", tools.initRepeat, creator.Individual, toolbox.attribute, n=len(dm.__weights__))
 	''' La población se crea como una lista de "individual", definido justo antes'''
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
@@ -49,14 +51,14 @@ def prueba():
     
     ''' Se genera un único individuo '''
     ind = toolbox.individual()
-    print(ind)
+    print("Individuo: ",ind)
     
     ''' Se inicializa la poblacion. Tendrá un total de 10 individuos. 
         Se genera como una lista de individuos '''
     pop = toolbox.population(n=10)
     
     ''' Se imprime la población: 10 individuos de 5 genes cada uno'''
-    print(pop)
+    print("Poblacion: ",pop)
     
     ''' En este ejemplo, todavía no se calcula la adaptación de cada individuo'''
 

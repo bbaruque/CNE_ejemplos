@@ -26,20 +26,20 @@ def carga_datos(ruta_fichero):
     # Se accede a cada registro del fichero
     for i, row in enumerate(reader):
         if (i==0):
-            dm.values = list(map(int, row))
+            dm.__values__ = list(map(int, row))
         if (i==1):
-            dm.weights = list(map(int, row))
+            dm.__weights__ = list(map(int, row))
         if (i==2):
-            dm.knapsackMax = list(map(int, row))
+            dm.__knapsackMax__ = list(map(int, row))
 
     # Se cierra el fichero    
     csvfile.close()
 
 def prueba():
-    carga_datos('.\datos1.csv')
-    print(dm.values)
-    print(dm.weights)
-    print(dm.knapsackMax)
+    carga_datos('.\datos2.csv')
+    print(dm.__values__)
+    print(dm.__weights__)
+    print(dm.__knapsackMax__)
 
 if __name__ == "__main__":
     prueba()
