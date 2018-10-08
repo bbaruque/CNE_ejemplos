@@ -12,7 +12,7 @@ import numpy as np
 from deap import base
 
 import evol_simple.DatosMochila as dm
-import ConfiguracionSolucion
+import evol_simple.ConfiguracionSolucion
 
 #%% Funcion de evaluacion
 # A partir de un individuo pasado como parametro, permite calcular la adaptacion de dicho individuo
@@ -46,7 +46,7 @@ def prueba():
     #Herramienta para guardar la configuracion de la poblacion
     toolbox = base.Toolbox()
 
-    ConfiguracionSolucion.configuraPoblacion(toolbox)
+    evol_simple.ConfiguracionSolucion.configuraPoblacion(toolbox)
 
     # Se instancia un individuo (aleatorio)
     ind = toolbox.individual()

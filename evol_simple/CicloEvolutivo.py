@@ -10,8 +10,8 @@ solución óptima al problema de la mochila.
 from deap import base, tools
 from deap import algorithms
 
-import ConfiguracionSolucion
-import Evaluacion
+import evol_simple.ConfiguracionSolucion
+import evol_simple.Evaluacion
 
 #%% Se Define la configuracion del algoritmo genetico
 def configuracionAlgoritmo(toolbox):  
@@ -21,13 +21,13 @@ def configuracionAlgoritmo(toolbox):
 	toolbox.register("select", tools.selTournament, tournsize=3)
 	# Se define cómo se evaluará cada individuo
 	# En este caso, se hará uso de la función de evaluación que se ha definido en el modulo Evaluacion.py
-	toolbox.register("evaluate", Evaluacion.evalKnapsack)
+	toolbox.register("evaluate", evol_simple.Evaluacion.evalKnapsack)
 
 #%% Se define como se realiza la Evolución de la busqueda de la solución
 def realizaEvolucion(toolbox, stats):
 
     # Se configura cómo se define cada individuo. Ver fichero correspondiente
-    ConfiguracionSolucion.configuraPoblacion(toolbox)
+    evol_simple.ConfiguracionSolucion.configuraPoblacion(toolbox)
 
     configuracionAlgoritmo(toolbox)
 

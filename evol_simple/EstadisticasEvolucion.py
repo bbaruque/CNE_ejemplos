@@ -6,14 +6,15 @@ Esto permite estimar si la evolución progresa de forma correcta o no.
 @author: bbaruque
 """
 
-from deap import base, tools
-import CicloEvolutivo
 import matplotlib.pyplot as plt
+import numpy as np 
+
+from deap import base, tools
+
+import evol_simple.CicloEvolutivo
 
 def configuraEstadisticasEvolucion():
 
-    import numpy as np 
-    
     # Se configura que estadísticas se quieren analizar sobre la evolucion
     stats = tools.Statistics(lambda ind: ind.fitness.values) 
     stats.register("avg", np.mean) 
@@ -49,5 +50,5 @@ if __name__ == "__main__":
     # Se configura que estadísticas se quieren analizar sobre la evolucion
     stats = configuraEstadisticasEvolucion()
     # Se ejecuta la evolución y se recupera el log de datos de lo que ha sucedido en la evolucion
-    log = CicloEvolutivo.realizaEvolucion(toolbox, stats)
+    log = evol_simple.CicloEvolutivo.realizaEvolucion(toolbox, stats)
     visualizaGrafica(log)
