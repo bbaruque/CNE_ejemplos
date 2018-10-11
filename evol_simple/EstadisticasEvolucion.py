@@ -38,7 +38,7 @@ def visualizaGrafica(log):
     ax1.set_xlabel("Generation")
     ax1.set_ylabel("Fitness", color="b")
     
-    ''' Notad que se pueden representar mas cosas. Por ejemplo el maximo y el minimo de
+    ''' Notad que se deberían representar mas cosas. Por ejemplo el maximo y el minimo de
     ese fitness se están recogiendo en las estadisticas, aunque en el ejemplo no se
     representen '''
     

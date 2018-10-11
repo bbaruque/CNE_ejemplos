@@ -39,6 +39,9 @@ def realizaEvolucion(toolbox, stats):
 	                               cxpb=0.5, mutpb=0.2, # Probabilidades de cruce y mutacion
 	                               ngen=20, verbose=False, stats=stats) # Numero de generaciones a completar y estadisticas a recoger
 
+    # Por cada generación, la estructura de logbook va almacenando un resumen de los
+    # avances del algoritmo.
+    print("El resultado de la evolución es: ")
     print(logbook)
 
     # Comprobamos cual es la mejor solucion encontrada por evolucion

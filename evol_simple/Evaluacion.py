@@ -35,7 +35,7 @@ def evalKnapsack(individual):
     if(diff < 0):
     	value = value + (diff * 10) # OJO: tened en cuenta que diff es negativo, por lo que en realidad está RESTANDO
 
-    return value,
+    return value, #OJO: La respuesta tiene que ser una tupla, aunque solo consideremos un valor
 
 #%% Se comprueba la asignacion de fitness:
 # Esta parte solo se incluye como comprobacion de la función evalKnapsack
@@ -65,8 +65,8 @@ def prueba():
     ind.fitness.values = evalKnapsack(ind)
 
     # Se imprime el individuo DESPUES de evaluar
-    print (ind)
     print ("\nIndividuo TRAS evaluar")
+    print (ind)
     print (ind.fitness.valid) # True
     print (ind.fitness)
 

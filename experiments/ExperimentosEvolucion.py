@@ -24,7 +24,7 @@ def configura_experimentos():
     ngen = [20, 30, 40, 50]
 
     # Los experimentos se van a realizar sobre distintas configuraciones del problema
-    data_input = ['.\datos1.csv','.\datos2.csv','.\datos3.csv']
+    data_input = ['.\datos\datos1.csv','.\datos\datos2.csv','.\datos\datos3.csv']
 
     for di in data_input:
         
