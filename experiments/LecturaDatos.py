@@ -19,7 +19,7 @@ def carga_datos(ruta_fichero):
     # Se crea un objeto que abre el fichero y representa su contenido
     csvfile = open(ruta_fichero, 'r')
     # Se crea un objeto que formatea el contenido como CSV
-    # Se considera el simboo de # como comentario y no se leerá
+    # Se considera el simbolo de # como comentario y no se leerá
     #reader = csv.reader(csvfile, delimiter=',')
     reader = csv.reader(filter(lambda row: row[0]!='#', csvfile))
 
@@ -36,10 +36,10 @@ def carga_datos(ruta_fichero):
     csvfile.close()
 
 def prueba():
-    carga_datos('.\datos2.csv')
-    print(dm.__values__)
-    print(dm.__weights__)
-    print(dm.__knapsackMax__)
+    carga_datos('.\experiments\datos\datos2.csv')
+    print("Valores", dm.__values__)
+    print("Pesos",dm.__weights__)
+    print("Peso max. a cargar en la Mochila",dm.__knapsackMax__)
 
 if __name__ == "__main__":
     prueba()

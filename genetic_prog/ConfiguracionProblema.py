@@ -39,7 +39,7 @@ def configuraIndividuo():
     ''' Se añade un valor constante (aleatorio) a incluir en el arbol: 
         permite incluir en las funciones otros operandos. Por ejemplo
         para elevar o multiplicar o dividir las variables por diferentes numeros'''
-    pset.addEphemeralConstant("rand101", lambda: random.randint(-1,1))
+    pset.addEphemeralConstant('rand101', lambda: random.randint(-1,1))
 
     ''' Se añade un argumento para la función a evlauar (en nuestro problema
     solo hay una: la 'x' de la función). Es decir, dada una x, se pide calcular una y.
