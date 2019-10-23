@@ -1,10 +1,2 @@
-
-geneticProg/__pycache__/
-
-monoObj/__pycache__/
-
-experiments/__pycache__/
-
-genetic_prog/__pycache__/
-
-evol_simple/__pycache__/
+*/__pycache__/
+*/.ipynb_checkpoints/
