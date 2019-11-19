@@ -42,7 +42,6 @@ def configura_experimentos():
     
             exp['alg_param'] = alg_param
 
-    
             experimentos.append(exp)
 
     '''Consiste en una lista de diccionarios.
@@ -101,6 +100,9 @@ def visualiza_experimentos(experimentos, populations, logbooks):
         
         print("La mejor solucion encontrada es: ")
         print(tools.selBest(pop,1)[0])
+        
+        print("Que tiene una valoración de: ")
+        print(tools.selBest(pop,1)[0].fitness)
 
         ee.visualizaGrafica(log)
 

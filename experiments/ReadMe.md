@@ -1,4 +1,4 @@
-El siguiente repositorio contiene el código pyhton necesario para ejecutar varios problemas simples de computacion evolutiva, empleando la librería [DEAP] (https://github.com/DEAP/deap "DEAP GitHub").
+El siguiente repositorio contiene el código pyhton necesario para ejecutar varios problemas simples de computacion evolutiva, empleando la librería [DEAP](https://github.com/DEAP/deap "DEAP GitHub").
 
 Todos los ficheros están comentados para ayudar a comprender la solución propuesta.
 
