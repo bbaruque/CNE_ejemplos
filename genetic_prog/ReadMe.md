@@ -3,7 +3,7 @@ El siguiente repositorio contiene el código pyhton necesario para ejecutar un a
 Se han separado los ficheros fuente por funcionalidad, para simplificar las explicaciones en cada uno. Para una mejor comprensión de la solución del problema, se sugiere el siguiente orden de lectura:
 
 1. DescripcionProblema.md
-2. DatosMochila.py
+2. DatosFuncion.py
 4. ConfiguracionProblema.py
 5. Evaluacion.py
 6. CicloEvolutivo.py
