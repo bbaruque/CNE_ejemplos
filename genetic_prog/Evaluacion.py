@@ -1,8 +1,8 @@
 
 import math
 import matplotlib.pyplot as plt
-import networkx as nx
-from networkx.drawing.nx_agraph import graphviz_layout
+#import networkx as nx
+#from networkx.drawing.nx_agraph import graphviz_layout
 
 from deap import base, gp
 
@@ -20,29 +20,31 @@ def evalEcuacion(toolbox, individual):
     func = toolbox.compile(expr=individual)
     # Se calcula el error cuadrático medio que comete la función
     # al evaluarse sobre los diferentes datos
+    # El ECM se calcula como: 
+    
     entradas, salidas = datos.fCuarta()
     
     sqerrors = []
-    for x,y in zip(entradas,salidas):
+    for x, y in zip(entradas,salidas):
         sqerrors.append((func(x) - y)**2)
         
     return (math.fsum(sqerrors) / len(entradas)),    
 
 #%% Funcion que permite dibujar el individuo pasado por parametro
 # como un arbol (en lugar de una expresión lineal)
-def plotExpressionTree(toolbox, individual):
-    
-    nodes, edges, labels = gp.graph(individual)
-
-    g = nx.Graph()
-    g.add_nodes_from(nodes)
-    g.add_edges_from(edges)
-    pos = graphviz_layout(g, prog="dot")
-
-    nx.draw_networkx_nodes(g, pos)
-    nx.draw_networkx_edges(g, pos)
-    nx.draw_networkx_labels(g, pos, labels)
-    plt.show()
+#def plotExpressionTree(toolbox, individual):
+#    
+#    nodes, edges, labels = gp.graph(individual)
+#
+#    g = nx.Graph()
+#    g.add_nodes_from(nodes)
+#    g.add_edges_from(edges)
+#    pos = graphviz_layout(g, prog="dot")
+#
+#    nx.draw_networkx_nodes(g, pos)
+#    nx.draw_networkx_edges(g, pos)
+#    nx.draw_networkx_labels(g, pos, labels)
+#    plt.show()
 
 #%% Se comprueba la asignacion de fitness:
 # Esta parte solo se incluye como comprobacion de la función

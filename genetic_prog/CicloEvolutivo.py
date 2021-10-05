@@ -54,7 +54,7 @@ def realizaEvolucion(stats):
     print(best)
 	
 	# TODO Sería interesante poder mostrar el resultado final como un árbol
-    Evaluacion.plotExpressionTree(toolbox, best)
+#    Evaluacion.plotExpressionTree(toolbox, best)
 
 
     return logbook

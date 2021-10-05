@@ -105,4 +105,5 @@ def pruebaPoblacion():
     print(pop)
 
 if __name__ == "__main__":
-    pruebaPoblacion()
+    pruebaIndividuo()
+    #pruebaPoblacion()
