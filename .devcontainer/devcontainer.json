@@ -13,7 +13,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "pip3 install --user -r requirements.txt",
 
-	"postCreateCommand": "pip install deap, matplotlib"
+	"postCreateCommand": "pip install deap matplotlib"
 
 	// Configure tool-specific properties.
 	// "customizations": {},
