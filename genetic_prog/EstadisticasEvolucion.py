@@ -9,7 +9,7 @@ from deap import tools
 import CicloEvolutivo
 import matplotlib.pyplot as plt
 
-def visualizaEstadisticasEvolucion():
+def visualiza_estadisticas_evolucion():
 
     import numpy as np 
     
@@ -20,7 +20,7 @@ def visualizaEstadisticasEvolucion():
     stats.register("min", np.min) 
     stats.register("max", np.max) 
     
-    log = CicloEvolutivo.realizaEvolucion(stats)
+    log = CicloEvolutivo.realiza_evolucion(stats)
     
     #%% Visualizamos una estadística para comprobar como fue la evolucion
     
@@ -32,7 +32,7 @@ def visualizaEstadisticasEvolucion():
     fig, ax1 = plt.subplots()
     
     # Se representa la media del valor de fitness por cada generación
-    line1 = ax1.plot(gen, avgs, "r-", label="Average Fitness")    
+    ax1.plot(gen, avgs, "r-", label="Average Fitness")    
     ax1.set_xlabel("Generation")
     ax1.set_ylabel("Fitness", color="b")
     
@@ -43,4 +43,4 @@ def visualizaEstadisticasEvolucion():
     plt.plot()
 
 if __name__ == "__main__":
-    visualizaEstadisticasEvolucion()
+    visualiza_estadisticas_evolucion()

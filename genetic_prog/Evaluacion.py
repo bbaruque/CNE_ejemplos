@@ -1,6 +1,5 @@
 
 import math
-#import matplotlib.pyplot as plt
 #import networkx as nx
 #from networkx.drawing.nx_agraph import graphviz_layout
 
@@ -14,7 +13,7 @@ import ConfiguracionProblema
 #
 # Evaluation function
 # From an individual passed as a parameter, it allows to calculate the adaptation of this individual.
-def evalEcuacion(toolbox, individual):
+def eval_ecuacion(toolbox, individual):
     
 #    tree = gp.PrimitiveTree(individual)
 #    print(str(tree))
@@ -60,7 +59,6 @@ def evalEcuacion(toolbox, individual):
 #    nx.draw_networkx_nodes(g, pos)
 #    nx.draw_networkx_edges(g, pos)
 #    nx.draw_networkx_labels(g, pos, labels)
-#    plt.show()
 
 #%% Se comprueba la asignacion de fitness:
 # Esta parte solo se incluye como comprobacion de la función. No es necesario incluirlo en la evaluacion.
@@ -73,7 +71,7 @@ def prueba():
     # Toolbox to save the population settings
     toolbox = base.Toolbox()
 
-    ConfiguracionProblema.configuraPoblacion(toolbox)
+    ConfiguracionProblema.configura_poblacion(toolbox)
 
     # Se instancia un individuo (aleatorio)
     # One individual (random) is instantiated
@@ -89,7 +87,7 @@ def prueba():
     print (tree)
     print (ind.fitness.valid)  # False
 
-    ind.fitness.values = evalEcuacion(toolbox, ind)
+    ind.fitness.values = eval_ecuacion(toolbox, ind)
 
     # Se imprime el individuo DESPUES de evaluar
     # Individual is printed AFTER evaluating

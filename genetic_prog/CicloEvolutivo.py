@@ -15,7 +15,7 @@ import ConfiguracionProblema
 import Evaluacion
 
 #%% Se Define la configuracion del algoritmo genetico
-def configuracionAlgoritmo(toolbox, pset):  
+def configuracion_algoritmo(toolbox, pset):  
     
     toolbox.register("select", tools.selTournament, tournsize=3)
     toolbox.register("mate", gp.cxOnePoint)
@@ -27,17 +27,17 @@ def configuracionAlgoritmo(toolbox, pset):
     
 	# Se define cómo se evaluará cada individuo
 	# En este caso, se hará uso de la función de evaluación que se ha definido en el modulo contiguo
-    toolbox.register("evaluate", Evaluacion.evalEcuacion, toolbox)
+    toolbox.register("evaluate", Evaluacion.eval_ecuacion, toolbox)
     
 #%% Se define como se realiza la Evolución de la Solución
-def realizaEvolucion(stats):
+def realiza_evolucion(stats):
 
     '''Herramienta para guardar la configuracion de la poblacion'''
     toolbox = base.Toolbox()
 
-    pset = ConfiguracionProblema.configuraPoblacion(toolbox)
+    pset = ConfiguracionProblema.configura_poblacion(toolbox)
 
-    configuracionAlgoritmo(toolbox, pset)
+    configuracion_algoritmo(toolbox, pset)
 
     # Se inicializa la poblacion
     population = toolbox.population(n=50)
@@ -60,4 +60,4 @@ def realizaEvolucion(stats):
     return logbook
 
 if __name__ == "__main__":
-    realizaEvolucion([])
+    realiza_evolucion([])

@@ -14,7 +14,7 @@ from deap import tools
 
 #Division protegida (evita la division por 0)
 #Protected Division (avoids division by 0)
-def protectedDiv(left, right):
+def protected_div(left, right):
     try:
         return left / right
     except ZeroDivisionError:
@@ -22,7 +22,7 @@ def protectedDiv(left, right):
 
 #%% Definición de la posible configuración del árbol que representará una solución
 # Definition of the possible configuration of the tree that will represent a solution
-def configuraIndividuo():
+def configura_individuo():
 
     ''' Para trabajar con arboles de expresiones, primero se deben definir los posibles componentes que puede incluir cada arbol'''
     ''' In order to work with expression trees, we must first define the possible components that each tree can include'''
@@ -37,7 +37,7 @@ def configuraIndividuo():
     pset.addPrimitive(operator.add, 2)
     pset.addPrimitive(operator.sub, 2)
     pset.addPrimitive(operator.mul, 2)
-    pset.addPrimitive(protectedDiv, 2) #Está definida arriba
+    pset.addPrimitive(protected_div, 2) #Está definida arriba
     pset.addPrimitive(operator.neg, 1)
     pset.addPrimitive(math.cos, 1)
     pset.addPrimitive(math.sin, 1)
@@ -61,7 +61,7 @@ def configuraIndividuo():
 
 #%% Definición del objetivo
 # Definition of the objective
-def configuraPoblacion(toolbox):
+def configura_poblacion(toolbox):
 
     ''' Se configura el fitness que se va a emplear en los individuos
 	 En este caso se configura para:
@@ -82,7 +82,7 @@ def configuraPoblacion(toolbox):
 #%% Definición de los individuos
 # Definition of individuals
 
-    pset = configuraIndividuo()
+    pset = configura_individuo()
 
     # Se define cada gen del genotipo como una expresión
     # La incialización se hará de forma Intermedia (ver teoría) con una altura de entre 1 y 2
@@ -107,9 +107,9 @@ No es necesario incluirlo en el experimento final'''
 It is not necessary to include it in the final experiment'''
 
 #%% Se comprueba el resultado de generar un individuo
-def pruebaIndividuo():
+def prueba_individuo():
     
-    pset = configuraIndividuo()
+    pset = configura_individuo()
     # Realiza una incialización completa con profundida entre 1 y 3
     # Performs a full initialisation with depth between 1 and 3
     expr = gp.genFull(pset, min_=1, max_=3) 
@@ -121,11 +121,11 @@ def pruebaIndividuo():
     print(tree)
 
 #%% Se comprueba el resultado de generar una poblacion completa
-def pruebaPoblacion():
+def prueba_poblacion():
 
     toolbox = base.Toolbox()
     
-    configuraPoblacion(toolbox)
+    configura_poblacion(toolbox)
     
     # Se inicializa la poblacion. Tendrá un total de 10 individuos.
     pop = toolbox.population(n=10)
@@ -135,5 +135,5 @@ def pruebaPoblacion():
         print(gp.PrimitiveTree(ind))
 
 if __name__ == "__main__":
-    #pruebaIndividuo()
-    pruebaPoblacion()
+    #prueba_individuo()
+    prueba_poblacion()
