@@ -1,6 +1,6 @@
 
 import math
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 #import networkx as nx
 #from networkx.drawing.nx_agraph import graphviz_layout
 
@@ -31,7 +31,7 @@ def evalEcuacion(toolbox, individual):
     #
     # This is the KNOWN data
     # In this case, it is obtained from a function, but it is likely to have to be read from a file.
-    entradas, salidas = datos.fCuarta()
+    entradas, salidas = datos.f_cuarta()
     
     # Se acumula el error (la diferencia) que se comete en la predicción de cada dato: 'x' es el dato facilitado, 'y' el dato esperado (target)
     # The error (the difference) made in the prediction of each datum is accumulated: 'x' is the given datum, 'y' is the expected (target) datum.

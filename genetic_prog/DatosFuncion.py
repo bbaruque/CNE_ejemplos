@@ -17,15 +17,14 @@
 function f(y) = x^4 + x^3 + x^2 + x, by giving different values to the x'''
 
 
-def fCuarta():
+def f_cuarta():
     entradas = [x/10. for x in range(-10,10)]
     salidas = [x**4 - x**3 - x**2 - x for x in entradas]
-    
     return entradas,salidas
 
 
 def prueba():
-    entradas, salidas = fCuarta()
+    entradas, salidas = f_cuarta()
     
     for x,y in zip(entradas,salidas):
         print("x=",x,"y=",y)
