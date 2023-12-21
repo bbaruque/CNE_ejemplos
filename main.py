@@ -3,6 +3,10 @@
 @author: bbaruque
 """
 
+import sys
+sys.path.append('./evol_simple')
+sys.path.append('./experiments')
+
 from deap import base
 import evol_simple.CicloEvolutivo
 import experiments.LecturaDatos

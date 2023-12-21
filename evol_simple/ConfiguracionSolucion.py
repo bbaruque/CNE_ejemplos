@@ -13,12 +13,15 @@ It is necessary to indicate how the individuals, the fitness and the population 
 @author: bbaruque
 """
 
+import sys
+sys.path.append('.')
+
 import random
 
 from deap import base, creator
 from deap import tools
 
-import evol_simple.DatosMochila as dm
+import DatosMochila as dm
 
 #%%
 def configuraPoblacion(toolbox):

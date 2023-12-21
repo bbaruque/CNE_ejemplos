@@ -7,11 +7,14 @@ This module contains the necessary functions to call the functions of the previo
 @author: bbaruque
 """
 
+import sys
+sys.path.append('.')
+
 from deap import base, tools
 from deap import algorithms
 
-import evol_simple.ConfiguracionSolucion
-import evol_simple.EvaluacionSolucion
+import ConfiguracionSolucion
+import EvaluacionSolucion
 
 #%% Se Define la configuracion del algoritmo genetico
 # Genetic algorithm configuration is defined.
@@ -27,7 +30,7 @@ def configuracionAlgoritmo(toolbox):
 
     # We define how each individual will be evaluated
 	# In this case, we will make use of the evaluation function that has been defined in the module EvaluacionSolucion.py.
-    toolbox.register("evaluate", evol_simple.EvaluacionSolucion.evalKnapsack)
+    toolbox.register("evaluate", EvaluacionSolucion.evalKnapsack)
 
 #%% Se define como se realiza la Evolución de la busqueda de la solución
 # Evolution of the search for a solution is defined as follows
@@ -35,7 +38,7 @@ def realizaEvolucion(toolbox, stats):
 
     # Se configura cómo se define cada individuo. Ver fichero correspondiente.
     # How each individual is defined is configured. See corresponding file.
-    evol_simple.ConfiguracionSolucion.configuraPoblacion(toolbox)
+    ConfiguracionSolucion.configuraPoblacion(toolbox)
 
     configuracionAlgoritmo(toolbox)
 

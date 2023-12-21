@@ -7,7 +7,7 @@ Created on Sun 16/12/2017
 from deap import base, algorithms, tools
 
 import sys
-sys.path.append('..')
+sys.path.append('.')
 sys.path.append('../evol_simple')
 
 import evol_simple.ConfiguracionSolucion as cp

@@ -10,12 +10,15 @@ This makes it possible to estimate whether the evolution is progressing correctl
 @author: bbaruque
 """
 
+import sys
+sys.path.append('.')
+
 import matplotlib.pyplot as plt
 import numpy as np 
 
 from deap import base, tools
 
-import evol_simple.CicloEvolutivo
+import CicloEvolutivo
 
 #%%
 def configuraEstadisticasEvolucion():
@@ -66,5 +69,5 @@ if __name__ == "__main__":
 
     # Se ejecuta la evolución y se recupera el log de datos de lo que ha sucedido en la evolucion
     # The evolution is executed and the data log of what has happened in the evolution is retrieved
-    log = evol_simple.CicloEvolutivo.realizaEvolucion(toolbox, stats)
+    log = CicloEvolutivo.realizaEvolucion(toolbox, stats)
     visualizaGrafica(log)

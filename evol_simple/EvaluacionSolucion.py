@@ -11,12 +11,15 @@ This allows us to compare between possible solutions to find the one that will b
 @author: bbaruque
 """
 
+import sys
+sys.path.append('.')
+
 import numpy as np
 
 from deap import base
 
-import evol_simple.DatosMochila as dm
-import evol_simple.ConfiguracionSolucion
+import DatosMochila as dm
+import ConfiguracionSolucion as config
 
 #%% Funcion de evaluacion
 # A partir de un individuo pasado como parametro, permite calcular la adaptacion de dicho individuo
@@ -63,7 +66,7 @@ def prueba():
     #Tool to save population settings
     toolbox = base.Toolbox()
 
-    evol_simple.ConfiguracionSolucion.configuraPoblacion(toolbox)
+    config.configuraPoblacion(toolbox)
 
     # Se instancia un individuo (aleatorio)
     # One individual (random) is instantiated
