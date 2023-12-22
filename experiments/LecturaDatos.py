@@ -39,7 +39,7 @@ def carga_datos(ruta_fichero):
     csvfile.close()
 
 def prueba():
-    carga_datos('.\datos\datos2.csv')
+    carga_datos('.\experiments\datos\datos2.csv')
     print("Valores", dm.__values__)
     print("Pesos",dm.__weights__)
     print("Peso max. a cargar en la Mochila",dm.__knapsackMax__)

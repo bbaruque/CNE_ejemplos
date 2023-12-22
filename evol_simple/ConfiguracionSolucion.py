@@ -21,7 +21,7 @@ import random
 from deap import base, creator
 from deap import tools
 
-import DatosMochila as dm
+import evol_simple.DatosMochila as dm
 
 #%%
 def configuraPoblacion(toolbox):
@@ -57,7 +57,7 @@ def configuraPoblacion(toolbox):
 	toolbox.register("population", tools.initRepeat, list, toolbox.individual)
 
 
-#%%
+#%%%%%%%%%%%%
 ''' Se comprueba que está correctamente definido. No es necesario incluirlo en el experimento final'''
 ''' Check that it is correctly defined. It does not need to be included in the final experiment'''
 
