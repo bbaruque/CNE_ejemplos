@@ -11,21 +11,24 @@ This allows us to compare between possible solutions to find the one that will b
 @author: bbaruque
 """
 
-import sys
-sys.path.append('.')
-
 import numpy as np
 
 from deap import base
 
-import DatosMochila as dm
-import ConfiguracionSolucion as config
+import sys
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+import evol_simple.DatosMochila as dm
+import evol_simple.ConfiguracionSolucion
 
 #%% Funcion de evaluacion
 # A partir de un individuo pasado como parametro, permite calcular la adaptacion de dicho individuo
 # From a given individual as a parameter, it allows to calculate the adaptation of that individual.
 
-def evalKnapsack(individual):
+def eval_knapsack(individual):
 
     value = 0.0
     weight = 0.0
@@ -52,12 +55,27 @@ def evalKnapsack(individual):
     #OJO: La respuesta tiene que ser una tupla, aunque solo consideremos un valor
     #NOTE: The answer has to be a tuple, even if we only consider one value.
 
+
+def toFenotype(individual):
+    """Convierte un individuo en su fenotipo correspondiente, es decir, en la solución que representa.
+    Converts an individual into its corresponding phenotype, that is, the solution it represents.
+    """
+    sel_objects = [i for i in range(len(individual)) if individual[i] == 1]
+
+    print("Individuo: ", individual)
+    print("Objetos Seleccionados: ", sel_objects)
+    print("Valor total: ", np.dot(individual,dm.__values__))
+    print("Peso total: ", np.dot(individual,dm.__weights__))
+    print("Se pasa del Peso maximo permitido: ", np.dot(individual,dm.__weights__) - dm.__knapsackMax__)
+
+    return sel_objects
+
 #%% Se comprueba la asignacion de fitness:
 # Esta parte solo se incluye como comprobacion de la función evalKnapsack
 # No es necesario incluirlo en la evaluacion
 
 # The fitness allocation is checked in this function:
-# This part is only included as a check of the evalKnapsack function.
+# This part is only included as a check of the eval_knapsack function.
 # It is not necessary to include it in the evaluation.
 
 def prueba():
@@ -66,7 +84,7 @@ def prueba():
     #Tool to save population settings
     toolbox = base.Toolbox()
 
-    config.configuraPoblacion(toolbox)
+    evol_simple.ConfiguracionSolucion.configura_poblacion(toolbox)
 
     # Se instancia un individuo (aleatorio)
     # One individual (random) is instantiated
@@ -84,7 +102,7 @@ def prueba():
     print (ind)
     print (ind.fitness.valid) # False
 
-    ind.fitness.values = evalKnapsack(ind)
+    ind.fitness.values = eval_knapsack(ind)
 
     # Se imprime el individuo DESPUES de evaluar
     # Individual is printed AFTER assessing
@@ -92,6 +110,8 @@ def prueba():
     print (ind)
     print (ind.fitness.valid) # True
     print (ind.fitness)
+
+    print("Fenotipo: ", toFenotype(ind))
 
 if __name__ == "__main__":
     prueba()

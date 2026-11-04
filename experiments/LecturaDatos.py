@@ -12,8 +12,13 @@ Más información de las funciones en:
     
 """
 
+from pathlib import Path
 import sys
-sys.path.append('.')
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+DATA_PATH = Path(__file__).resolve().parent / "datos"
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 import csv
 import evol_simple.DatosMochila as dm
@@ -33,7 +38,7 @@ def carga_datos(ruta_fichero):
         if (i==1):
             dm.__weights__ = list(map(int, row))
         if (i==2):
-            dm.__knapsackMax__ = list(map(int, row))
+            dm.__knapsackMax__ = int(row[0])
 
     # Se cierra el fichero    
     csvfile.close()

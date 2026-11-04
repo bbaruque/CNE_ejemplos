@@ -17,6 +17,12 @@ import sys
 sys.path.append('.')
 
 import random
+import sys
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 
 from deap import base, creator
 from deap import tools
@@ -24,7 +30,7 @@ from deap import tools
 import evol_simple.DatosMochila as dm
 
 #%%
-def configuraPoblacion(toolbox):
+def configura_poblacion(toolbox):
 
 	''' Se configura el fitness que se va a emplear en los individuos
 	 En este caso se configura para:
@@ -65,7 +71,7 @@ def prueba():
 
     toolbox = base.Toolbox()
     
-    configuraPoblacion(toolbox)
+    configura_poblacion(toolbox)
     
     '''Se genera un único individuo '''
     '''A single individual is generated '''

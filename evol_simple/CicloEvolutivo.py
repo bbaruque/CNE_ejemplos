@@ -7,18 +7,21 @@ This module contains the necessary functions to call the functions of the previo
 @author: bbaruque
 """
 
-import sys
-sys.path.append('.')
-
 from deap import base, tools
 from deap import algorithms
 
-import ConfiguracionSolucion
-import EvaluacionSolucion
+import sys
+from pathlib import Path
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+
+import evol_simple.ConfiguracionSolucion
+import evol_simple.EvaluacionSolucion
 
 #%% Se Define la configuracion del algoritmo genetico
 # Genetic algorithm configuration is defined.
-def configuracionAlgoritmo(toolbox):  
+def configuracion_algoritmo(toolbox):  
     # Se seleccionan procedimiento standard para cruce, mutacion y seleccion
     # Standard procedures for crossover, mutation and selection are selected.
     toolbox.register("mate", tools.cxOnePoint)
@@ -30,7 +33,7 @@ def configuracionAlgoritmo(toolbox):
 
     # We define how each individual will be evaluated
 	# In this case, we will make use of the evaluation function that has been defined in the module EvaluacionSolucion.py.
-    toolbox.register("evaluate", EvaluacionSolucion.evalKnapsack)
+    toolbox.register("evaluate", evol_simple.EvaluacionSolucion.eval_knapsack)
 
 #%% Se define como se realiza la Evolución de la busqueda de la solución
 # Evolution of the search for a solution is defined as follows
@@ -38,9 +41,9 @@ def realizaEvolucion(toolbox, stats):
 
     # Se configura cómo se define cada individuo. Ver fichero correspondiente.
     # How each individual is defined is configured. See corresponding file.
-    ConfiguracionSolucion.configuraPoblacion(toolbox)
+    evol_simple.ConfiguracionSolucion.configura_poblacion(toolbox)
 
-    configuracionAlgoritmo(toolbox)
+    configuracion_algoritmo(toolbox)
 
     # Se inicializa la poblacion con 300 individuos
     # The population is initialised with 300 individuals.
