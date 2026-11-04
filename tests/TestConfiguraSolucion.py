@@ -19,7 +19,7 @@ class TestConfiguraSolucion(unittest.TestCase):
 
     def setUp(self):
         self.toolbox = base.Toolbox()
-        cs.configuraPoblacion(self.toolbox)
+        cs.configura_poblacion(self.toolbox)
         
     def test_generate_individual(self):
         ind = self.toolbox.individual()
