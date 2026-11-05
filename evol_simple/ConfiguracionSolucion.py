@@ -82,8 +82,8 @@ def prueba():
     '''The population is initialised. It will have a total of 10 individuals. It is generated as a list of individuals. '''
     pop = toolbox.population(n=10)
 	
-    '''Se imprime la población: 10 individuos de 5 genes cada uno'''
-    '''The population is printed: 10 individuals of 5 genes each'''
+    '''Se imprime la población: 10 individuos de 20 genes cada uno'''
+    '''The population is printed: 10 individuals of 20 genes each'''
     print("Poblacion: ",pop)
     
     '''En este ejemplo, todavía no se calcula la adaptación de cada individuo'''
