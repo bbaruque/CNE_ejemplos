@@ -7,7 +7,7 @@ from pathlib import Path
 
 import neat
 
-import cartpole_env as env
+import neuro_evol.gymnasium_env as env
 
 
 # Each genome becomes a neural network that receives the four CartPole
