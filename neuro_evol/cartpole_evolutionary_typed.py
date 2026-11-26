@@ -6,7 +6,7 @@ import time
 import numpy as np
 from deap import algorithms, base, creator, gp, tools
 
-import CartPole_env as env
+import cartpole_env as env
 
 # La raíz del árbol devuelve una acción CartPole válida: 0 o 1.
 def score_to_action(score: float) -> int:
@@ -20,6 +20,16 @@ def protected_div(left: float, right: float) -> float:
         return left / right
     except ZeroDivisionError:
         return 1.0
+
+
+def protected_sin(value: float) -> float:
+    """Evita errores cuando un valor no finito llega a la primitiva seno."""
+    return math.sin(value) if math.isfinite(value) else 0.0
+
+
+def protected_cos(value: float) -> float:
+    """Evita errores cuando un valor no finito llega a la primitiva coseno."""
+    return math.cos(value) if math.isfinite(value) else 0.0
 
 
 toolbox = base.Toolbox()
@@ -50,8 +60,8 @@ def configure_experiment():
     pset.addPrimitive(operator.mul, [float, float], float)
     pset.addPrimitive(protected_div, [float, float], float)
     pset.addPrimitive(operator.neg, [float], float)
-    pset.addPrimitive(math.cos, [float], float)
-    pset.addPrimitive(math.sin, [float], float)
+    pset.addPrimitive(protected_cos, [float], float)
+    pset.addPrimitive(protected_sin, [float], float)
 
     # Única primitiva que produce la salida int; garantiza que sea 0 o 1.
     pset.addPrimitive(score_to_action, [float], int)

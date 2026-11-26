@@ -3,7 +3,7 @@
 import gymnasium as gym
 from stable_baselines3 import PPO
 
-import CartPole_env as env
+import cartpole_env as env
 
 # Train without opening a window. PPO learns from many short episodes.
 training_env = gym.make(env.ENV_ID)

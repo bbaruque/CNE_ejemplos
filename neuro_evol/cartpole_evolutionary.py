@@ -7,7 +7,7 @@ import time
 from deap import base, creator, algorithms, gp
 from deap import tools
 
-import CartPole_env as env
+import cartpole_env as env
 
 toolbox = base.Toolbox()
 # Creation of the Statistics object to calculate stats for each generation
@@ -20,6 +20,16 @@ def protectedDiv(left, right):
         return left / right
     except ZeroDivisionError:
         return 1.0
+
+
+def protectedSin(value):
+    """Return zero when a non-finite value reaches the sine primitive."""
+    return math.sin(value) if math.isfinite(value) else 0.0
+
+
+def protectedCos(value):
+    """Return zero when a non-finite value reaches the cosine primitive."""
+    return math.cos(value) if math.isfinite(value) else 0.0
 
 
 def configuraIndividuo():
@@ -37,8 +47,8 @@ def configuraIndividuo():
     pset.addPrimitive(operator.mul, 2)
     pset.addPrimitive(protectedDiv, 2)
     pset.addPrimitive(operator.neg, 1)
-    pset.addPrimitive(math.cos, 1)
-    pset.addPrimitive(math.sin, 1)
+    pset.addPrimitive(protectedCos, 1)
+    pset.addPrimitive(protectedSin, 1)
     pset.addEphemeralConstant("rand101", lambda: random.randint(-1, 1))
 
     return pset
