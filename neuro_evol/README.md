@@ -28,9 +28,9 @@ Los ejemplos que muestran el entorno abren una ventana gráfica; ejecútalos en 
 
 ## Archivos y recorrido recomendado
 
-1. **`cartpole_testRandom.py`** — punto de partida. Escoge acciones al azar e imprime las observaciones y recompensas. Avanza paso a paso al pulsar Enter.
-2. **`cartpole_testInteractive.py`** — permite probar el control manual: introduce `6` para empujar a la izquierda o `4` para empujar a la derecha.
-3. **`cartpole_env.py`** — reúne funciones comunes para ejecutar episodios, evaluar una política en varios episodios y mostrar su resultado. Los ejemplos de aprendizaje reutilizan estas funciones.
+1. **`gymnasium_env.py`** — reúne funciones comunes para ejecutar episodios, evaluar una política en varios episodios y mostrar su resultado. Los ejemplos de aprendizaje reutilizan estas funciones.
+2. **`cartpole_testRandom.py`** — punto de partida. Escoge acciones al azar e imprime las observaciones y recompensas. Avanza paso a paso al pulsar Enter.
+3. **`cartpole_testInteractive.py`** — permite probar el control manual: introduce `6` para empujar a la izquierda o `4` para empujar a la derecha.
 4. **`cartpole_evolutionary.py`** — aplica programación genética con DEAP. Evoluciona expresiones matemáticas que transforman las cuatro observaciones en una acción.
 5. **`cartpole_evolutionary_typed.py`** — variante de programación genética con tipos explícitos: las operaciones internas producen números reales y la salida se convierte en una acción válida.
 6. **`cartpole_reinforced.py`** — entrena una red neuronal mediante PPO, un método de aprendizaje por refuerzo, y después muestra un episodio con la política entrenada.
