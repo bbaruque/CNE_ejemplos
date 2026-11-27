@@ -29,7 +29,7 @@ def evaluate_genomes(genomes, config):
 
 
 def main():
-    config_path = Path(__file__).with_name("CartPole_neat.ini")
+    config_path = Path(__file__).with_name("cartPole_neat.ini")
     config = neat.Config(
         neat.DefaultGenome,
         neat.DefaultReproduction,
